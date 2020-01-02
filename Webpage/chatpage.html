@@ -13,6 +13,18 @@
   </form>
 </dialog>
 
+<!--closeChat-Dialog-->
+<dialog id="DialogC">
+  <form method="dialog">
+    <section>
+      <p><label for="Pop-up" style="font-size: 64px">Bist du dir sicher?</label>
+    </section>
+	  <button class="button2" id="switchC" style="color: green;">Call beenden</button>
+	  <div class="divider"></div>
+      <button class="button2" id="cancelC" style="color: red;">Abbrechen</button>
+  </form>
+</dialog>
+
 <head>
 <script type="text/javascript" src="chat_pre_script.js"> </script>
 <link rel="stylesheet" type="text/css" href="chat_style.css" />
@@ -67,7 +79,7 @@
 					<div>
 						<span class="online"> </span>
 						<span> Chat mit <strong>Olaf D.</strong> </span>
-						<span id="endcall"> <span class="posmiddle" style="color:white;"> Auflegen </span> </span>
+						<span id="endcall"> <span class="posmiddle" style="color:white;" onclick="openPopup2()"> Auflegen </span> </span>
 					</div>
 				</div>
 
@@ -167,6 +179,29 @@ function switchToMessages() {
 
 function switchToProfile() {
 	window.location = "profile.html";
+}
+</script>
+
+<!--Endcall-Script-->
+<script>
+var cancelButtonC = document.getElementById('cancelC');
+var DialogC = document.getElementById('DialogC');
+var switchButtonC = document.getElementById('switchC');
+	
+(function() {
+	cancelButtonC.addEventListener('click', function() {
+		 DialogC.close(); 
+	});
+		
+	// For the scene switch
+	switchButtonC.addEventListener('click', function() {
+		window.location = "mainpage.html";
+	});
+
+})();
+
+function openPopup2() {
+	DialogC.showModal();
 }
 </script>
 </html>
