@@ -1,0 +1,139 @@
+/* Set global font, should be only once in final script */
+* {
+	font-family: Arial, serif;
+}
+
+/* The clouds where text is within */
+.textclouds {
+	/*width: 400px; height: 35px;*/
+	width: 40%; height: 35px;
+	border-radius: 15px 15px 15px 15px;
+	background-color: grey;
+	margin-left: 55%;
+	margin-top: 0.5%;
+	flex-wrap: wrap;
+	text-align: left;
+}
+
+/* Main window; Change window-size ONLY here,
+the rest adjusts itself automatically (except the extendChat function, see comments there) */
+.chatwindow {
+	margin-left: 100px;
+	height: 600px; width: 1000px;
+	display: inline-flex;
+	flex-direction: column;
+	border: 2px solid black;
+}
+
+/* First line; Flex-box: who are you talking with + end call button */
+#chatwith {
+	/* height: 50px; width: 1000px; */
+	height: 12%; width: 100%;
+	display: inline-flex;
+	justify-content: space-evenly;
+	font-size: 40px;
+}
+
+.online {
+	height: 20px; width: 20px;
+	border-radius: 50%;
+	background-color: #1fcd34;
+	display: inline-block;
+	float: left;
+	margin-top: 14px;
+	margin-right: 5px;
+}
+
+/* End call Icon */
+#endcall {
+	height: 35px; width: 85px;
+	background-color: darkred;
+	display: inline-table;
+	margin-top: 6px;
+	margin-left: 10px;
+	float: right;
+	cursor: pointer;
+}
+
+#endcall:hover {
+	background-color: red;
+}
+
+/* Chat appears in this area here and is stacked upon each other */
+#appearchat {
+	/* height: 1500px; width: 1000px; */
+	height: 300%; width: 100%;
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	overflow-y: auto;
+	/* We don't care about overflow in x axis, there ain't many words for that*/
+	overflow-x: hidden;
+}
+
+/* Chat-Text-Field: User input will be displayed here */
+#chat {
+	width: 400px; height: 36px;
+	font-size: 14pt;
+}
+
+/* Flexbox containing elements of the text field row */
+#text-line {
+	/* height: 500px; width: 1000px; */
+	height: 90%; width: 100%;
+	display: inline-flex;
+	justify-content: space-evenly;
+}
+
+/* A normal button of size 75, 35; Adjusted to fit with the "text field" */
+.bt {
+	width: 75px; height: 35px;
+	/* But in percent ...*/
+	background-color: white;
+	border: 2px solid black;
+	cursor: pointer;
+}
+
+.bt:hover {
+	border: 2px dashed black;
+}
+
+.bt:active {
+	border: 2px dashed blue;
+}
+
+/* the sendbutton */
+.send {
+	margin-left: 5px;
+	float: right;
+	display: inline-table;
+}
+
+/* Positions the text in the middle of the send button */
+.posmiddle {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 15pt;
+	color: black;
+	user-select: none;
+}
+
+.posmiddle:active {
+	color: blue;
+}
+
+/* Clients chat (intended to the right) */
+.client {
+	margin-left: 20px;
+	margin-right: 20px;
+	padding-top: 5px;
+	color: white;
+	font-size: 15pt;
+}
+
+.filebutton {
+	display: none;
+}
+
+/* END */
