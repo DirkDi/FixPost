@@ -3,28 +3,29 @@
 
 <!--Logout-Dialog-->
 <dialog id="Dialog">
-  <form method="dialog">
-    <section>
-      <p><label for="Pop-up" style="font-size: 64px">Möchtest du dich wirklich abmelden?</label>
-    </section>
-	  <button class="button2" id="switch" style="color: green;" onclick="switchToLogin()">Ja</button>
-	  <div class="divider"></div>
-      <button class="button2" id="cancel" style="color: red;">Nein</button>
-  </form>
-</dialog>
+	<form method="dialog">
+	  <section>
+		<p><label for="Pop-up" style="font-size: 32px; text-align: center;">Möchtest du dich wirklich abmelden?</label>
+	  </section>
+		<div class="divider" style="width:75px;"></div>
+		<button class="button2" id="switch" style="color: green; width: 100px" onclick="switchToLogin()">Ja</button>
+		<div class="divider" style="width:75px;"></div>
+		<div class="divider" style="width:75px;"></div>
+		<button class="button2" id="cancel" style="color: red; width: 100px">Nein</button>
+		<div class="divider" style="width:75px;"></div>
+	</form>
+  </dialog>
 
-<!--closeChat-Dialog-->
-<dialog id="DialogC">
-  <form method="dialog">
-    <section>
-      <p><label for="Pop-up" style="font-size: 64px">Bist du dir sicher?</label>
-    </section>
-	  <button class="button2" id="switchC" style="color: green;">Chat beenden</button>
-	  <div class="divider"></div>
-      <button class="button2" id="cancelC" style="color: red;">Abbrechen</button>
-  </form>
-</dialog>
-
+  <!--Warning-Dialog-->
+  <dialog id="DialogC">
+	<form method="dialog">
+	  <section>
+		<p><label for="Pop-up" style="font-size: 32px; text-align: center;">Beende zuerst den Anruf!</label>
+	  </section>
+		<div class="divider" style="width:75px;"></div>
+		<button class="button2" id="closeDC" style="color: green; width: 100px">Ok</button>
+	</form>
+  </dialog>
 <head>
 <script type="text/javascript" src="chat_pre_script.js"> </script>
 <link rel="stylesheet" type="text/css" href="chat_style.css" />
@@ -38,10 +39,10 @@
 		
 		<div class="topnav" col="2"> 
 			<a class="logout" onclick="openPopup()">Abmelden</a>
-			<a onclick="switchToSettings()">Einstellungen</a>
-			<a onclick="switchToProfile()">Profil</a>
-			<a onclick="switchToMessages()">Nachrichten</a>
-			<a onclick="switchToMain()">Startseite</a>
+			<a onclick="openPopup2()">Einstellungen</a>
+			<a onclick="openPopup2()">Profil</a>
+			<a onclick="openPopup2()">Nachrichten</a>
+			<a onclick="openPopup2()">Startseite</a>
 		</div>
 		
 	</div>
@@ -79,7 +80,7 @@
 					<div>
 						<span class="online"> </span>
 						<span> Chat mit <strong>Olaf D.</strong> </span>
-						<span id="endcall"> <span class="posmiddle" style="color:white;" onclick="openPopup2()"> Auflegen </span> </span>
+						<span id="endcall"> <span class="posmiddle" style="color:white;" onclick="switchToMain()"> Auflegen </span> </span>
 					</div>
 				</div>
 
@@ -104,7 +105,7 @@
 						<input type="file" name="file" id="file" class="filebutton"/>
 					</div>
 					<div col="1">
-						<label for="file" class="bt send"> <span class="posmiddle"> Hochladen </span> </label>
+						<label for="file" class="bt send" style="width: 125px;"> <span class="posmiddle"> Hochladen </span> </label>
 					</div>
 					<div>
 						<label for="chat"></label>
@@ -139,6 +140,8 @@
     var cancelButton = document.getElementById('cancel');
     var Dialog = document.getElementById('Dialog');
 	var switchButton = document.getElementById('switch');
+	var DialogC = document.getElementById('DialogC');
+	var closeDC = document.getElementById('closeDC');
 
     // Update button opens a modal dialog
     popupButton.addEventListener('click', function() {
@@ -150,6 +153,10 @@
       Dialog.close(); // Todo: for the Queue add a reset
     });
 	
+	closeDC.addEventListener('click', function() {
+		DialogC.close();
+	});
+     
 	// For the scene switch
 	switchButton.addEventListener('click', function() {
       window.location = "login.html";
@@ -159,6 +166,10 @@
   
 function openPopup() {
 	Dialog.showModal();
+}
+
+function openPopup2() {
+	DialogC.showModal();
 }
 
 function switchToLogin() {
@@ -179,29 +190,6 @@ function switchToMessages() {
 
 function switchToProfile() {
 	window.location = "profile.html";
-}
-</script>
-
-<!--Endcall-Script-->
-<script>
-var cancelButtonC = document.getElementById('cancelC');
-var DialogC = document.getElementById('DialogC');
-var switchButtonC = document.getElementById('switchC');
-	
-(function() {
-	cancelButtonC.addEventListener('click', function() {
-		 DialogC.close(); 
-	});
-		
-	// For the scene switch
-	switchButtonC.addEventListener('click', function() {
-		window.location = "mainpage.html";
-	});
-
-})();
-
-function openPopup2() {
-	DialogC.showModal();
 }
 </script>
 </html>
