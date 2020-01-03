@@ -2,16 +2,18 @@
 <html>
 <!--Logout-Dialog-->
 <dialog id="Dialog">
-  <form method="dialog">
-    <section>
-      <p><label for="Pop-up" style="font-size: 64px">Möchtest du dich wirklich abmelden?</label>
-    </section>
-	  <button class="button2" id="switch" style="color: green;" onclick="switchToLogin()">Ja</button>
-	  <div class="divider"></div>
-      <button class="button2" id="cancel" style="color: red;">Nein</button>
-  </form>
-</dialog>
-
+	<form method="dialog">
+	  <section>
+		<p><label for="Pop-up" style="font-size: 32px; text-align: center;">Möchtest du dich wirklich abmelden?</label>
+	  </section>
+		<div class="divider" style="width:75px;"></div>
+		<button class="button2" id="switch" style="color: green; width: 100px" onclick="switchToLogin()">Ja</button>
+		<div class="divider" style="width:75px;"></div>
+		<div class="divider" style="width:75px;"></div>
+		<button class="button2" id="cancel" style="color: red; width: 100px">Nein</button>
+		<div class="divider" style="width:75px;"></div>
+	</form>
+  </dialog>
 <!--Queue-Dialog-->
 <dialog id="DialogQ">
   <form method="dialog">
