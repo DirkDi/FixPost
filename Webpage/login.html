@@ -33,22 +33,36 @@
 			}
 		</style>
 	</head>
-	<body>
+	<body onload="javascript:init()">
 		<div class="flex-container horizontal_centering">
 			<h1 class="title">
 				<img src="logo.jpg" alt="Fixpost" class="logo">Fixpost-Tutorsystem
 			</h1>
 			<table>
-				<tr><td>Benutzername: </td> <td><input id="username_field" /></td></tr>
+				<tr><td>Benutzername: </td> <td><input id="username_field" autofocus /></td></tr>
 				<tr><td>Passwort: </td> <td><input type="password" id="password_field" /></td></tr>
 			</table>
 			<button id="login" onclick="switchToMain()" style="margin-top: 10px; margin-left: 40px;">Anmelden</button>
 			<p>Noch keinen Account? <button>Registrieren</button></p>
 		</div>
 	</body>
-<script>
-function switchToMain() {
-	window.location = "mainpage.html";
-}
-</script>
+	<script>
+		function init() {
+			user_field = document.getElementById("username_field");
+			user_field.addEventListener("keydown", loginByEnter);
+			word_field = document.getElementById("password_field");
+			word_field.addEventListener("keydown", loginByEnter);
+		}
+		
+		function loginByEnter(event) {
+			var e = event.which || event.keyCode;
+			if (e === 13) {
+				switchToMain();
+			}
+		}
+		
+		function switchToMain() {
+			window.location = "mainpage.html";
+		}
+	</script>
 </html>
