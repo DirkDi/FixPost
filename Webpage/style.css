@@ -275,3 +275,33 @@ a.active:hover {
 .button {
 	cursor: pointer;
 }
+
+/* Issue 5*/
+/* Is online ... */
+.online {
+	height: 15px; width: 15px;
+	border-radius: 50%;
+	background-color: #1fcd34;
+	display: inline-block;
+	margin-top: 6px;
+	margin-right: 5px;
+}
+
+/* Is offline ... */
+.nonline {
+	height: 15px; width: 15px;
+	border-radius: 50%;
+	background-color: red;
+	display: inline-block;
+	margin-top: 6px;
+	margin-right: 5px;
+}
+
+.tutors {
+	font-size: 16pt;
+	cursor: pointer;
+}
+
+.tutors:hover {
+	color: white;
+}
