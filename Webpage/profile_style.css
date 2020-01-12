@@ -183,9 +183,13 @@ p {
 	color: black;
 }
 
-/* Change the color of links on hover */
 .topnav a.logout {
 	background-color: darkred;
+	color: white;
+}
+
+.topnav a.active {
+	background-color: grey;
 	color: white;
 }
 

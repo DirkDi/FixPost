@@ -173,6 +173,11 @@ p {
 	color: white;
 }
 
+.topnav a.active {
+	background-color: grey;
+	color: white;
+}
+
 a.logout:hover {
 	background-color: lightred;
 	color: black;

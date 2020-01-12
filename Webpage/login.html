@@ -63,12 +63,13 @@ function openPopup2() {
 				switchToMain();
 			}
 		}
+
 		
 		function switchToMain() {
 		
 			userName = document.getElementById("username_field").value;
 			password = document.getElementById("password_field").value;
-			if(userName == "Holger Flaua" && password == "FixPost123" || userName == "debug" && password == "admin") {
+			if((userName == "Holger Flaua" && password == "FixPost123") || (userName == "debug" && password == "admin")) {
 				window.location = "mainpage.html";
 			} else {
 				openPopup2();
