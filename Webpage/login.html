@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html>
+<dialog id="Dialog">
+	<form method="dialog">
+	  <section>
+		<p><label for="Pop-up" style="font-size: 32px; text-align: center;">Name oder Passwort ungültig.</label>
+	  </section>
+		<div class="divider" style="width:130px;"></div>
+		<button class="button2" id="closeDC" style="color: green; width: 100px; text-align: canter;">Ok</button>
+	</form>
+  </dialog>
 	<head>
 		<title>Login</title>
 		<link rel="stylesheet" href="login_style.css">
@@ -17,6 +26,29 @@
 			<p>Noch keinen Account? <button style="cursor: pointer;" >Registrieren</button></p>
 		</div>
 	</body>
+	
+	<script>
+  (function() {
+    var popupButton = document.getElementById('popup');
+    var Dialog = document.getElementById('Dialog');
+	var closeDC = document.getElementById('closeDC');
+	
+	closeDC.addEventListener('click', function() {
+		Dialog.close();
+	});
+     
+	// For the scene switch
+	switchButton.addEventListener('click', function() {
+      window.location = "login.html";
+    });
+
+  })();
+  
+function openPopup2() {
+	Dialog.showModal();
+}
+</script>
+	
 	<script>
 		function init() {
 			user_field = document.getElementById("username_field");
@@ -33,8 +65,13 @@
 		}
 		
 		function switchToMain() {
-			if(true) {
+		
+			userName = document.getElementById("username_field").value;
+			password = document.getElementById("password_field").value;
+			if(userName == "Holger Flaua" && password == "FixPost123") {
 				window.location = "mainpage.html";
+			} else {
+				openPopup2();
 			}
 		}
 	</script>
