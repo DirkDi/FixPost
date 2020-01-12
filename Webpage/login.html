@@ -2,36 +2,7 @@
 <html>
 	<head>
 		<title>Login</title>
-		<style>
-			* {
-				font-size: 35px;
-				font-family: Arial, serif;
-			}
-			
-			.flex-container {
-				display: -webkit-flex;
-				display: flex;
-				-webkit-flex-wrap: wrap;
-				flex-wrap: wrap;
-			}
-			
-			.horizontal_centering {
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-			}
-			
-			.title {
-				font-size: 45px;
-				text-decoration: underline
-			}
-			
-			.logo {
-				margin-bottom: -45px;
-				height: 80%;
-				width: auto;
-			}
-		</style>
+		<link rel="stylesheet" href="login_style.css">
 	</head>
 	<body onload="javascript:init()">
 		<div class="flex-container horizontal_centering">
@@ -42,8 +13,8 @@
 				<tr><td>Benutzername: </td> <td><input id="username_field" autofocus /></td></tr>
 				<tr><td>Passwort: </td> <td><input type="password" id="password_field" /></td></tr>
 			</table>
-			<button id="login" onclick="switchToMain()" style="margin-top: 10px; margin-left: 40px;">Anmelden</button>
-			<p>Noch keinen Account? <button>Registrieren</button></p>
+			<button id="login" onclick="switchToMain()" style="margin-top: 10px; margin-left: 40px; cursor: pointer;">Anmelden</button>
+			<p>Noch keinen Account? <button style="cursor: pointer;" >Registrieren</button></p>
 		</div>
 	</body>
 	<script>

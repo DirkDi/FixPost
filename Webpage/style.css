@@ -1,6 +1,7 @@
 img {
 	max-width: 65%;
     height: auto;
+	cursor: pointer;
 }
 
 h2 {
@@ -149,6 +150,7 @@ p {
 	padding: 20px 22px;;
 	text-decoration: none;
 	font-size: 20px;
+	font-family: Arial, serif;
 }
 
 /* Style the links inside the navigation bar */
@@ -161,6 +163,7 @@ p {
 /* Change the color of links on hover */
 .topnav a:hover {
 	background-color: #ddd;
+	cursor: pointer;
 	color: black;
 }
 
@@ -257,4 +260,8 @@ a.logout:hover {
 	margin-bottom: 10px;
 	margin-top: 10px;
 	text-align: center;
+}
+
+.button {
+	cursor: pointer;
 }
