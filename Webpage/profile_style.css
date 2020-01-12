@@ -198,6 +198,11 @@ a.logout:hover {
 	color: black;
 }
 
+a.active:hover {
+	background-color: #ddd;
+	color: black;
+}
+
 .header {
 	font-size: 36pt;
 	font-weight: bold;
