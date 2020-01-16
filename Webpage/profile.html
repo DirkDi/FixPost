@@ -66,6 +66,21 @@
 			color: white;
 		}
 	</style>
+
+	<style>
+		/*Change!*/
+		.profileItemEdit {
+			background: white;
+			font-size: 30px;
+			font-family: Verdana, "Lucida Sans";
+			color: black;
+			width: auto;
+			margin-bottom: 10px;
+			margin-top: 10px;
+			text-align: left;
+			border: 2px dashed black;
+		}
+	</style>
 </head>
 <body bgcolor="F1F1F1">
 
@@ -111,7 +126,7 @@
 		<div class="picture" col="2"> 
 			<ul style="list-style-type:none;">
 				<div class="profilePicture"><img src="profile.jpg" alt="Menu"/></div>
-				<li class="editLink">Profil bearbeiten</li>
+				<li class="editLink" id="edit">Profil bearbeiten</li>
 			</ul>
 		</div>
 		
@@ -126,11 +141,15 @@
 		
 		<div class="right" col="4"> 
 			<ul style="list-style-type:none;">
-				<li class="profileItem">Karl Meier</li>
-				<li class="profileItem">24</li>
-				<li class="profileItem">Informatik</li>
-				<li class="profileItem">3</li>
+				<li class="profileItem" id="name">Karl Meier</li>
+				<li class="profileItem" id="age">24</li>
+				<li class="profileItem" id="career">Informatik</li>
+				<li class="profileItem" id="semester">3</li>
 			</ul>
+		</div>
+
+		<div>
+			<p id="finishbutton" style="text-align: center"> FINISH </p>
 		</div>
 		
 	</div>
@@ -187,5 +206,40 @@ function switchToMessages() {
 function switchToProfile() {
 	window.location = "profile.html";
 }
+</script>
+
+<script>
+	/* Edit profile env*/
+	function finishIt() {
+		// ToDo:
+		let editable = document.getElementsByClassName("profileItemEdit");
+		for(let j = 0; j < 3; j++) {
+			for(i of editable) {
+				i.className= "profileItem";
+			}
+		}
+	}
+
+	var editable = document.getElementsByClassName("profileItemEdit");
+
+	var edit = document.getElementById("edit");
+	edit.onclick = function() {
+		var profileItems = document.getElementsByClassName('profileItem');
+		for(let j = 0; j < 4; j++) {
+			for (let element of profileItems) {
+				element.className = "profileItemEdit";
+			}
+		}
+		editable = document.getElementsByClassName("profileItemEdit");
+		editable[0].addEventListener("click", function() { editable[0].innerHTML = prompt("Gebe den neuen Nutzernamen an") });
+		editable[1].addEventListener("click", function() { editable[1].innerHTML = prompt("Gebe neues Alter ein") });
+		editable[2].addEventListener("click", function() { editable[2].innerHTML = prompt("Gebe neuen STudiengang ein") });
+		editable[3].addEventListener("click", function() { editable[3].innerHTML = prompt("Gebe neues Semester") });
+	};
+
+	var finish = document.getElementById("finishbutton");
+	finish.onclick = finishIt;
+
+	alert(document.getElementById("lelele"));
 </script>
 </html>
