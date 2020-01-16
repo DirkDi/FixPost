@@ -330,3 +330,22 @@ a.active:hover {
 	margin-top: 10px;
 	text-align:center;
 }
+
+/* A normal button of size 75, 35; Adjusted to fit with the "text field" */
+.bt {
+	width: 100px; height: 35px;
+	background-color: white;
+	border: 2px solid black;
+	cursor: pointer;
+	margin-left: 50px;
+	font-family: Arial, sans-serif;
+}
+
+.bt:hover {
+	background-color: whitesmoke;
+}
+
+.bt:active {
+	border: 2px solid blue;
+	background-color: white;
+}

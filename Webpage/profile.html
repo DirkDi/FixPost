@@ -79,7 +79,12 @@
 			margin-top: 10px;
 			text-align: left;
 			border: 2px dashed black;
+            cursor: text;
 		}
+
+        .finishButton {
+            text-align: center;
+        }
 	</style>
 </head>
 <body bgcolor="F1F1F1">
@@ -127,6 +132,7 @@
 			<ul style="list-style-type:none;">
 				<div class="profilePicture"><img src="profile.jpg" alt="Menu"/></div>
 				<li class="editLink" id="edit">Profil bearbeiten</li>
+                <li id="hereButton"></li>
 			</ul>
 		</div>
 		
@@ -146,10 +152,6 @@
 				<li class="profileItem" id="career">Informatik</li>
 				<li class="profileItem" id="semester">3</li>
 			</ul>
-		</div>
-
-		<div>
-			<p id="finishbutton" style="text-align: center"> FINISH </p>
 		</div>
 		
 	</div>
@@ -210,14 +212,17 @@ function switchToProfile() {
 
 <script>
 	/* Edit profile env*/
-	function finishIt() {
-		// ToDo:
+	function finishIt(self) {
 		let editable = document.getElementsByClassName("profileItemEdit");
-		for(let j = 0; j < 3; j++) {
-			for(i of editable) {
-				i.className= "profileItem";
+		for(let j = 0; j < 20; j++) {
+			for(let element of editable) {
+                element.className= "profileItem";
+                element.onclick = function () {
+                    return false;
+                }
 			}
 		}
+		self.parentNode.innerHTML = "";
 	}
 
 	var editable = document.getElementsByClassName("profileItemEdit");
@@ -231,15 +236,17 @@ function switchToProfile() {
 			}
 		}
 		editable = document.getElementsByClassName("profileItemEdit");
-		editable[0].addEventListener("click", function() { editable[0].innerHTML = prompt("Gebe den neuen Nutzernamen an") });
-		editable[1].addEventListener("click", function() { editable[1].innerHTML = prompt("Gebe neues Alter ein") });
-		editable[2].addEventListener("click", function() { editable[2].innerHTML = prompt("Gebe neuen STudiengang ein") });
-		editable[3].addEventListener("click", function() { editable[3].innerHTML = prompt("Gebe neues Semester") });
+        editable[0].onclick = (() => { editable[0].innerHTML = prompt("Gebe den neuen Nutzernamen an") });
+        editable[1].onclick = (() => { editable[1].innerHTML = prompt("Gebe neues Alter ein") });
+        editable[2].onclick = (() => { editable[2].innerHTML = prompt("Gebe neuen Studiengang ein") });
+        editable[3].onclick = (() => { editable[3].innerHTML = prompt("Gebe neues Semester") });
+
+		// Add button
+        var button = document.getElementById("hereButton");
+        button.innerHTML = "<div class=\"finishButton bt\" id=\"finishbutton\" onclick='finishIt(this)'> FINISH </div>";
 	};
 
 	var finish = document.getElementById("finishbutton");
 	finish.onclick = finishIt;
-
-	alert(document.getElementById("lelele"));
 </script>
 </html>
