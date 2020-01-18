@@ -331,6 +331,11 @@ a.active:hover {
 	text-align:center;
 }
 
+.editLink:hover {
+	cursor:pointer;
+	text-decoration:underline;
+}
+
 /* A normal button of size 75, 35; Adjusted to fit with the "text field" */
 .bt {
 	width: 100px; height: 35px;
