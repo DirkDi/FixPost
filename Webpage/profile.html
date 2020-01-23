@@ -4,9 +4,9 @@
 <!--Logout-Dialog-->
 <dialog id="Dialog">
 	<form method="dialog">
-	  <section>
-		<p><label for="Pop-up" style="font-size: 32px; text-align: center;">Möchtest du dich wirklich abmelden?</label>
-	  </section>
+		<section>
+			<p><label for="Pop-up" style="font-size: 32px; text-align: center;">Möchtest du dich wirklich abmelden?</label>
+		</section>
 		<div class="divider" style="width:75px;"></div>
 		<button class="button2" id="switch" style="color: green; width: 100px" onclick="switchToLogin()">Ja</button>
 		<div class="divider" style="width:75px;"></div>
@@ -14,7 +14,24 @@
 		<button class="button2" id="cancel" style="color: red; width: 100px">Nein</button>
 		<div class="divider" style="width:75px;"></div>
 	</form>
-  </dialog>
+</dialog>
+
+<!--Logout-Dialog-->
+<dialog id="Dialog1">
+	<form method="dialog">
+		<section>
+			<p>
+				<label for="Pop-up" style="font-size: 32px; text-align: center;">Die Eingabe darf nicht leer sein!</label>
+			</p>
+		</section>
+		<div class="divider" style="width:75px;"></div>
+		<button class="button2" id="switch1" style="color: green; width: 180px" onclick="closeDialog();">Fortfahren</button>
+		<div class="divider" style="width:75px;"></div>
+		<div class="divider" style="width:75px;"></div>
+		<button class="button2" id="cancel1" style="color: red; width: 180px" onclick="close_now();">Abbrechen</button>
+		<div class="divider" style="width:75px;"></div>
+	</form>
+</dialog>
 
 <head>
 <meta charset = "UTF-8">
@@ -74,7 +91,8 @@
 			font-size: 30px;
 			font-family: Verdana, "Lucida Sans";
 			color: black;
-			width: auto;
+			/*width: auto;*/
+			width: 350px;
 			margin-bottom: 10px;
 			margin-top: 10px;
 			text-align: left;
@@ -84,6 +102,8 @@
 
         .finishButton {
             text-align: center;
+			display: block;
+			margin-left: 10%;
         }
 	</style>
 </head>
@@ -128,14 +148,6 @@
 
 		</div>
 		
-		<div class="picture" col="2"> 
-			<ul style="list-style-type:none;">
-				<div class="profilePicture"><img src="profile.jpg" alt="Menu"/></div>
-				<li class="editLink" id="edit">Profil bearbeiten</li>
-                <li id="hereButton"></li>
-			</ul>
-		</div>
-		
 		<div class="center" col="3"> 
 			<ul style="list-style-type:none;">
 				<li class="profilePrompt">Name: </li>
@@ -147,17 +159,23 @@
 		
 		<div class="right" col="4"> 
 			<ul style="list-style-type:none;">
-				<li class="profileItem" id="name">Karl Meier</li>
+				<li class="profileItem" id="name">Holger Flauer</li>
 				<li class="profileItem" id="age">24</li>
 				<li class="profileItem" id="career">Informatik</li>
 				<li class="profileItem" id="semester">3</li>
+				<li>
+					<div id="hereButton">
+						<div class="editLink" id="edit">  Profil bearbeiten  </div>
+					</div>
+				</li>
 			</ul>
 		</div>
-		
+
 	</div>
-	<div class="footer"> 
+
+	<div class="footer">
 			<p href=""> Impressum </p>
-		</div>
+	</div>
 </body>
 
 <!--Logout-Script-->
@@ -184,6 +202,62 @@
     });
 
   })();
+
+  /* Empty string */
+
+  (function() {
+	  var popupButton1 = document.getElementById('popup1');
+	  var cancelButton1 = document.getElementById('cancel1');
+	  var Dialog1 = document.getElementById('Dialog1');
+	  var switchButton1 = document.getElementById('switch1');
+
+	  // Update button opens a modal dialog
+	  popupButton1.addEventListener('click', function() {
+		  Dialog1.showModal();
+	  });
+
+	  // Form cancel button closes the dialog box
+	  cancelButton1.addEventListener('click', function() {
+		  Dialog1.close();
+	  });
+
+	  // For the scene switch
+	  switchButton1.addEventListener('click', function() {
+		  window.location = "login.html";
+	  });
+
+  })();
+
+  function close_now() {
+	  var button = document.getElementById("finishbutton");
+	  finishIt(button);
+  }
+
+  /* Edit profile env*/
+  function finishIt(self) {
+	  let editable = document.getElementsByClassName("profileItemEdit");
+	  for(let j = 0; j < 20; j++) {
+		  for(let element of editable) {
+			  element.className= "profileItem";
+			  element.onclick = function () {
+				  return false;
+			  }
+		  }
+	  }
+	  self.parentNode.innerHTML = "<div class=\"editLink\" id=\"edit\">  Profil bearbeiten  </div>";
+	  let parentNode = document.getElementById("edit");
+	  parentNode.onclick = () => makeeditable();
+  }
+
+  function closeDialog() {
+	  Dialog1.close();
+  }
+
+  function openPopup1() {
+	  Dialog1.showModal();
+  }
+
+  /* Empty str end */
   
 function openPopup() {
 	Dialog.showModal();
@@ -211,6 +285,54 @@ function switchToProfile() {
 </script>
 
 <script>
+	/* Function */
+	function makeeditable() {
+		var profileItems = document.getElementsByClassName('profileItem');
+		for (let j = 0; j < 4; j++) {
+			for (let element of profileItems) {
+				element.className = "profileItemEdit";
+			}
+		}
+		editable = document.getElementsByClassName("profileItemEdit");
+		editable[0].onclick = (() => {
+			let name = prompt("Gebe den neuen Nutzernamen an");
+			if(name === "") {
+				openPopup1();
+			} else {
+				editable[0].innerHTML = name;
+			}
+		});
+		editable[1].onclick = (() => {
+			let age = prompt("Gebe neues Alter ein");
+			if(age === "") {
+				openPopup1();
+			} else {
+				editable[1].innerHTML = age;
+			}
+		});
+		editable[2].onclick = (() => {
+			let career =  prompt("Gebe neuen Studiengang ein");
+			if(career === "") {
+				openPopup1();
+			} else {
+				editable[2].innerHTML = career;
+			}
+		});
+		editable[3].onclick = (() => {
+			let semester = prompt("Gebe neues Semester");
+			if(semester === "") {
+				openPopup1();
+			} else {
+				editable[3].innerHTML = prompt("Gebe neues Semester");
+			}
+		});
+
+		// Add button
+		var button = document.getElementById("hereButton");
+		button.innerHTML = "<div class=\"finishButton bt\" id=\"finishbutton\" onclick='finishIt(this)'> FINISH </div>";
+	}
+
+
 	/* Edit profile env*/
 	function finishIt(self) {
 		let editable = document.getElementsByClassName("profileItemEdit");
@@ -222,29 +344,15 @@ function switchToProfile() {
                 }
 			}
 		}
-		self.parentNode.innerHTML = "";
+		self.parentNode.innerHTML = "<div class=\"editLink\" id=\"edit\">  Profil bearbeiten  </div>";
+		let parentNode = document.getElementById("edit");
+		parentNode.onclick = () => makeeditable();
 	}
 
 	var editable = document.getElementsByClassName("profileItemEdit");
 
 	var edit = document.getElementById("edit");
-	edit.onclick = function() {
-		var profileItems = document.getElementsByClassName('profileItem');
-		for(let j = 0; j < 4; j++) {
-			for (let element of profileItems) {
-				element.className = "profileItemEdit";
-			}
-		}
-		editable = document.getElementsByClassName("profileItemEdit");
-        editable[0].onclick = (() => { editable[0].innerHTML = prompt("Gebe den neuen Nutzernamen an") });
-        editable[1].onclick = (() => { editable[1].innerHTML = prompt("Gebe neues Alter ein") });
-        editable[2].onclick = (() => { editable[2].innerHTML = prompt("Gebe neuen Studiengang ein") });
-        editable[3].onclick = (() => { editable[3].innerHTML = prompt("Gebe neues Semester") });
-
-		// Add button
-        var button = document.getElementById("hereButton");
-        button.innerHTML = "<div class=\"finishButton bt\" id=\"finishbutton\" onclick='finishIt(this)'> FINISH </div>";
-	};
+	edit.onclick = () => makeeditable();
 
 	var finish = document.getElementById("finishbutton");
 	finish.onclick = finishIt;

@@ -303,32 +303,30 @@ a.active:hover {
 	font-size: 30px;
 	font-family: Verdana, "Lucida Sans";
 	color: black;
-	width: auto;
+	/*width: auto;*/
+	width: 350px;
+	overflow: hidden;
 	margin-bottom: 10px;
 	margin-top: 10px;
 	text-align: left;
 	border-width: 2px;
 	border-style: solid;
 	border-color: black;
+	user-select: none;
 }
 
 .profilePicture {
-	margin: 0px;
-	padding: 0px;
 	border-width: 2px;
 	border-style: solid;
 	border-color: black
 }
 
 .editLink {
-	background: white;
-	font-size: 15px;
-	font-family: Verdana, "Lucida Sans";
+	font-size: 20px;
+	font-family: Verdana, "Lucida Sans", serif;
 	color: blue;
 	width: auto;
-	margin-bottom: 10px;
-	margin-top: 10px;
-	text-align:center;
+	display: inline;
 }
 
 .editLink:hover {
