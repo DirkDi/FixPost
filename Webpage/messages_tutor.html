@@ -1,0 +1,148 @@
+<!Doctype HTML>
+<html>
+
+<!--Logout-Dialog-->
+<dialog id="Dialog">
+	<form method="dialog">
+	  <section>
+		<p><label for="Pop-up" style="font-size: 32px; text-align: center;">Möchtest du dich wirklich abmelden?</label>
+	  </section>
+		<div class="divider" style="width:75px;"></div>
+		<button class="button2" id="switch" style="color: green; width: 100px" onclick="switchToLogin()">Ja</button>
+		<div class="divider" style="width:75px;"></div>
+		<div class="divider" style="width:75px;"></div>
+		<button class="button2" id="cancel" style="color: red; width: 100px">Nein</button>
+		<div class="divider" style="width:75px;"></div>
+	</form>
+  </dialog>
+
+<head>
+<meta charset = "UTF-8">
+
+	<div class="headerContainer"> 
+	
+		<div class="headerImage" col="1"> 
+			<b onclick="switchToMain()"><img src="logo.jpg" alt="Menu"/></b>
+		</div>
+		
+		<div class="topnav" col="2"> 
+			<a class="logout" onclick="openPopup()">Abmelden</a>
+			<a onclick="switchToSettings()">Einstellungen</a>
+			<a onclick="switchToProfile()">Profil</a>
+			<a class="active" onclick="switchToMessages()">Nachrichten</a>
+			<a onclick="switchToMain()">Startseite</a>
+		</div>
+		
+	</div>
+
+	<link rel="stylesheet" href="style.css">
+</head>
+<body bgcolor="F1F1F1">
+
+	<div class="container">
+
+		<div class="left" col="1">
+
+			<div class="text1">Tutoren online:</div>
+            <span style="display: none;"></span>
+			<ol style="list-style-type:none;">
+				<li class="tutors">
+					<span class="online"></span>
+					Hans G.
+				</li>
+				<li class="tutors">
+					<span class="online"></span>
+					Olaf D.
+				</li>
+				<li class="tutors">
+					<span class="online"></span>
+					Paul F.
+				</li>
+				<li class="tutors">
+					<span class="online"></span>
+					Holger B.
+				</li>
+			</ol>
+
+			<div class="text1">Tutoren offline:</div>
+			<ol style="list-style-type:none;">
+				<li class="tutors">
+					<span class="nonline"></span>
+					Dieter M.
+				</li>
+				<li class="tutors">
+					<span class="nonline"></span>
+					Peter Z.
+				</li>
+			</ol>
+
+		</div>
+		
+		<div class="center" style="text-align:left;" col="2"> 
+			<ul style="list-style-type:none;">
+				<li class="chatHistory">Chat mit Olaf D., gestern um 16:00</li>
+				<li class="chatWindowLeft">Olaf: Hallo, wie kann ich dir helfen?</li>
+				<li class="chatWindowRight">Du: Hay, ich hab da ein Problem mit Arrays</li>
+				<li class="chatWindowRight">Du: Irgendwie iteriert der da zu weit</li>
+				<li class="chatWindowLeft">Olaf: Das ist ein OutOfBound-Problem, hast du vielleicht <= statt < geschrieben?</li>
+				<li class="chatWindowRight">Du: Ja, geht jetzt</li>
+				<li class="chatWindowRight">Du: Danke dir :)</li>
+			</ul>
+		</div>
+		
+	</div>
+	<div class="footer"> 
+			<p href=""> Impressum </p>
+		</div>
+</body>
+
+<!--Logout-Script-->
+<script>
+  (function() {
+    var popupButton = document.getElementById('popup');
+    var cancelButton = document.getElementById('cancel');
+    var Dialog = document.getElementById('Dialog');
+	var switchButton = document.getElementById('switch');
+
+    // Update button opens a modal dialog
+    popupButton.addEventListener('click', function() {
+      Dialog.showModal();
+    });
+
+    // Form cancel button closes the dialog box
+    cancelButton.addEventListener('click', function() {
+      Dialog.close(); // Todo: for the Queue add a reset
+    });
+	
+	// For the scene switch
+	switchButton.addEventListener('click', function() {
+      window.location = "login.html";
+    });
+
+  })();
+  
+function openPopup() {
+	Dialog.showModal();
+}
+
+function switchToLogin() {
+	window.location = "login.html";
+}
+
+function switchToSettings() {
+	window.location = "settings_tutor.html";
+}
+
+function switchToMain() {
+	window.location = "mainpage_tutor.html";
+}
+
+function switchToMessages() {
+	window.location = "messages_tutor.html";
+}
+
+function switchToProfile() {
+	window.location = "profile_tutor.html";
+}
+</script>
+</html>

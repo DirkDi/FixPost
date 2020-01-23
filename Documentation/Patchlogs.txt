@@ -1,0 +1,3 @@
+Change 1, Lukas Niehus, 23.01.2019
+	-Added Credentials for the tutor Olaf D.
+	-Every Tutor page now redirects to other tutor pages

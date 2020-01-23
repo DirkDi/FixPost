@@ -1,0 +1,356 @@
+img {
+	max-width: 65%;
+    height: auto;
+}
+
+h2 {
+	padding: 10px;
+}
+
+
+p {
+	padding: 10px;
+}
+
+.text1 {
+	font-family: Verdana, "Lucida Sans";
+	font-size: 20px;
+	color: black;
+	padding-top: 10px;
+}
+
+.title{
+	display: block;
+	font-size: 36px;
+	font-family: Verdana, "Lucida Sans";
+	color: #00519E;
+	font-weight: bold;
+	text-align: center;
+}
+
+.headerContainer {  
+	background: #FFFFFF;
+	display: flex;
+	flex-wrap: wrap;
+	column-count: 3;
+}
+
+.headerImage {
+	flex: 15%;
+	text-align: center;
+}
+
+
+.container {  
+	background: #FFFFFF;
+	display: flex;
+	flex-wrap: wrap;
+	column-count: 3;
+}
+
+@media screen and (max-width: 749px) {
+  .container {   
+    flex-direction: column;
+  }
+}
+
+
+
+/* Menu with tutors */
+.left {
+	flex: 15%;
+	display: flex;
+	flex-direction: column;
+	background-color: #CCCCCC;
+	font-family: Verdana, "Lucida Sans";
+}
+
+.right {
+	flex: 60%;
+	display: flex;
+	flex-direction: column;
+	background-color: #FFFFFF;
+	font-family: Verdana, "Lucida Sans";
+}
+
+.tutorOn {
+	background: green;
+	font-size: 30px;
+	font-family: Verdana, "Lucida Sans";
+	color: #FFFFFF;
+	width: auto;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
+	text-align: center;
+}
+
+.tutorOff {
+	background: darkred;
+	font-size: 30px;
+	font-family: Verdana, "Lucida Sans";
+	color: #FFFFFF;
+	width: auto;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
+	text-align: center;
+}
+
+/* Center */
+.center {
+	flex: 10%;
+	display: flex;
+	flex-direction: column;
+	background-color: #FFFFFF;
+	font-family: Verdana, "Lucida Sans";
+	text-align:center;
+}
+
+.picture {
+	flex: 12%;
+	display: flex;
+	max-width: 200%;
+    height: auto;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+}
+
+.button2{
+		font-size: 32px;
+}
+	
+.divider{
+	width:180px;
+	height:auto;
+	display:inline-block;
+}
+
+.footer{
+	width: 100%;
+	height: 10%;
+	float: bottom;
+	font-size: 12px;
+	font-family: Verdana, "Lucida Sans";
+	font-weight: bold;
+	color: #3876B0;
+	text-align: center;
+}
+
+.li {
+	padding: 0px;
+	margin: 0px;
+}
+
+.tutorOn:hover {
+	background-color: lightgreen;
+}
+
+.tutorOff:hover {
+	background-color: red;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+	flex: 85%;
+	background-color: #000000;
+	overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+	height: 100%;
+	float: right;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 20px 22px;;
+	text-decoration: none;
+	font-size: 20px;
+	font-family: Arial, serif;
+}
+
+/* Style the links inside the navigation bar */
+.b {
+	float: left;
+	padding: 0;
+	margin: 0;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.topnav a.logout {
+	background-color: darkred;
+	color: white;
+}
+
+.topnav a.active {
+	background-color: grey;
+	color: white;
+}
+
+a.logout:hover {
+	background-color: lightred;
+	color: black;
+}
+
+a.active:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.header {
+	font-size: 36pt;
+	font-weight: bold;
+	color: black;
+	padding: 15px;
+	display: -webkit-flex; /* Safari */
+	-webkit-justify-content: center; /* Safari 6.1+ */
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+	
+.body {
+	font-size: 24pt;
+	color: black;
+	padding: 15px;
+}
+	
+.button {
+	font-size: 24pt;
+	margin: auto;
+	display: block;
+}
+
+.status {
+	font-size: 24pt;
+	color: green;
+	padding: 15px;
+	display: -webkit-flex; /* Safari */
+	-webkit-justify-content: center; /* Safari 6.1+ */
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+.button2{
+	font-size: 32px;
+}
+.divider{
+	width:180px;
+	height:auto;
+	display:inline-block;
+}
+
+.chatWindowLeft {
+	background: darkgray;
+	font-size: 30px;
+	font-family: Verdana, "Lucida Sans";
+	color: #FFFFFF;
+	width: auto;
+	padding: 10px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-right: 250px;
+	margin-left: 25px;
+	text-align: center;
+	border-radius: 15px 15px 15px 15px
+}
+
+.chatWindowRight {
+	background: gray;
+	font-size: 30px;
+	font-family: Verdana, "Lucida Sans";
+	color: #FFFFFF;
+	width: auto;
+	padding: 10px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-right: 25px;
+	margin-left: 250px;
+	text-align: right;
+	border-radius: 15px 15px 15px 15px
+}
+
+.chatHistory {
+	background: Black;
+	font-size: 30px;
+	font-family: Verdana, "Lucida Sans";
+	color: #FFFFFF;
+	width: auto;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	text-align: center;
+}
+
+.profilePrompt {
+	background: white;
+	font-size: 30px;
+	font-family: Verdana, "Lucida Sans";
+	color: black;
+	width: auto;
+	margin-bottom: 13px;
+	margin-top: 10px;
+	text-align: left;
+}
+
+.profileItem {
+	background: white;
+	font-size: 30px;
+	font-family: Verdana, "Lucida Sans";
+	color: black;
+	width: auto;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	text-align: left;
+	border-width: 2px;
+	border-style: solid;
+	border-color: black;
+}
+
+.profilePicture {
+	margin: 0px;
+	padding: 0px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: black
+}
+
+.editLink {
+	background: white;
+	font-size: 15px;
+	font-family: Verdana, "Lucida Sans";
+	color: blue;
+	width: auto;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	text-align:center;
+}
+
+.editLink:hover {
+	cursor:pointer;
+	text-decoration:underline;
+}
+
+/* A normal button of size 75, 35; Adjusted to fit with the "text field" */
+.bt {
+	width: 100px; height: 35px;
+	background-color: white;
+	border: 2px solid black;
+	cursor: pointer;
+	margin-left: 50px;
+	font-family: Arial, sans-serif;
+}
+
+.bt:hover {
+	background-color: whitesmoke;
+}
+
+.bt:active {
+	border: 2px solid blue;
+	background-color: white;
+}

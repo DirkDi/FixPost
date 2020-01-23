@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	.header {
+		font-size: 36pt;
+		font-weight: bold;
+		color: black;
+		padding: 15px;
+		display: -webkit-flex; /* Safari */
+		-webkit-justify-content: center; /* Safari 6.1+ */
+		display: flex;
+		justify-content: center;
+		text-align: center;
+	}
+	
+	.body {
+		font-size: 24pt;
+		color: black;
+		padding: 15px;
+	}
+	
+	.button {
+		font-size: 24pt;
+		margin: auto;
+		display: block;
+	}
+	.status {
+		font-size: 24pt;
+		color: green;
+		padding: 15px;
+		display: -webkit-flex; /* Safari */
+		-webkit-justify-content: center; /* Safari 6.1+ */
+		display: flex;
+		justify-content: center;
+		text-align: center;
+	}
+	.button2{
+		font-size: 32px;
+	}
+	.divider{
+		width:180px;
+		height:auto;
+		display:inline-block;
+	}
+	</style>
+	
+<dialog id="Dialog">
+  <form method="dialog">
+    <section>
+      <p><label for="Pop-up" style="font-size: 64px">Der Anruf ist bereit!</label>
+    </section>
+	  <button class="button2" id="switch" style="color: green;">Annehmen</button>
+	  <div class="divider"></div>
+      <button class="button2" id="cancel" style="color: red;">Ablehnen</button>
+  </form>
+</dialog>
+
+<script>
+	var currentPeople = 4;
+	var currentTime = currentPeople * 5;
+    var cancelButtonQ = document.getElementById('cancel');
+    var DialogQ = document.getElementById('Dialog');
+	var switchButtonQ = document.getElementById('switch');
+	
+	(function() {
+		// Form cancel button closes the dialog box
+		cancelButtonQ.addEventListener('click', function() {
+		  DialogQ.close(); 
+		  cancel();
+		});
+		
+		// For the scene switch
+		switchButtonQ.addEventListener('click', function() {
+		  //Todo: Insert switch of screen
+		});
+
+	})();
+	
+	function cancel() {
+		document.getElementById("changeStatus").innerHTML = "Beitreten";
+		document.getElementById("inQueue").innerHTML = "";
+	}
+	
+	function enterQueue() {
+		if (document.getElementById("changeStatus").innerHTML == "Beitreten") {
+			if (currentPeople == 0) {
+				//popup window
+				DialogQ.showModal();
+			}
+			document.getElementById("inQueue").innerHTML = "Du bist in der Warteschlange.";
+			document.getElementById("changeStatus").innerHTML = "Verlassen";
+		} else {
+			cancel();
+		}
+	}
+	
+	var x = setInterval(function() {
+			if (currentPeople >= 1) {
+				window.currentPeople--;
+				window.currentTime = currentPeople * 5;
+				document.getElementById("people").innerHTML = "Leute vor dir: " + currentPeople;
+				document.getElementById("time").innerHTML = "Geschätzte Wartezeit: " + currentTime + " min";
+			} else {
+				if (document.getElementById("changeStatus").innerHTML == "Verlassen") {
+					//popup window
+					DialogQ.showModal();
+				}
+			}
+		}, 5000);
+</script>
+</head>
+<body>
+	<div>
+		<div class='header'>Warteschlange</div>
+		<div class='body'>
+			<p id='people'>Leute vor dir: 4</p>
+			<p id='time'>Geschätzte Wartezeit: 20 min</p>
+		</div>
+		<div class='status' id='inQueue'>  </div>
+		<div class='buttonWrapper'><button class="button" onclick ="enterQueue()" id="changeStatus">Beitreten</button></div>
+	</div>
+</body>
+</html>

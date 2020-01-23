@@ -1,0 +1,252 @@
+<!Doctype HTML>
+<html>
+
+<!--Logout-Dialog-->
+<dialog id="Dialog">
+	<form method="dialog">
+	  <section>
+		<p><label for="Pop-up" style="font-size: 32px; text-align: center;">Möchtest du dich wirklich abmelden?</label>
+	  </section>
+		<div class="divider" style="width:75px;"></div>
+		<button class="button2" id="switch" style="color: green; width: 100px" onclick="switchToLogin()">Ja</button>
+		<div class="divider" style="width:75px;"></div>
+		<div class="divider" style="width:75px;"></div>
+		<button class="button2" id="cancel" style="color: red; width: 100px">Nein</button>
+		<div class="divider" style="width:75px;"></div>
+	</form>
+  </dialog>
+
+<head>
+<meta charset = "UTF-8">
+
+	<div class="headerContainer"> 
+	
+		<div class="headerImage" col="1"> 
+			<b onclick="switchToMain()"><img src="logo.jpg" alt="Menu"/></b>
+		</div>
+		
+		<div class="topnav" col="2"> 
+			<a class="logout" onclick="openPopup()">Abmelden</a>
+			<a onclick="switchToSettings()">Einstellungen</a>
+			<a class="active" onclick="switchToProfile()">Profil</a>
+			<a onclick="switchToMessages()">Nachrichten</a>
+			<a onclick="switchToMain()">Startseite</a>
+		</div>
+		
+	</div>
+
+	<link rel="stylesheet" href="profile_style.css">
+
+	<style>
+		.online {
+			height: 15px; width: 15px;
+			border-radius: 50%;
+			background-color: #1fcd34;
+			display: inline-block;
+			margin-top: 6px;
+			margin-right: 5px;
+		}
+
+		/* Is offline ... */
+		.nonline {
+			height: 15px; width: 15px;
+			border-radius: 50%;
+			background-color: red;
+			display: inline-block;
+			margin-top: 6px;
+			margin-right: 5px;
+		}
+
+		.tutors {
+			font-size: 16pt;
+			cursor: pointer;
+		}
+
+		.tutors:hover {
+			color: white;
+		}
+	</style>
+
+	<style>
+		/*Change!*/
+		.profileItemEdit {
+			background: white;
+			font-size: 30px;
+			font-family: Verdana, "Lucida Sans";
+			color: black;
+			width: auto;
+			margin-bottom: 10px;
+			margin-top: 10px;
+			text-align: left;
+			border: 2px dashed black;
+            cursor: text;
+		}
+
+        .finishButton {
+            text-align: center;
+        }
+	</style>
+</head>
+<body bgcolor="F1F1F1">
+
+	<div class="container">
+
+		<div class="left" col="1">
+
+			<div class="text1">Tutoren online:</div>
+			<span style="display: none;"></span>
+			<ol style="list-style-type:none;">
+				<li class="tutors">
+					<span class="online"></span>
+					Hans G.
+				</li>
+				<li class="tutors">
+					<span class="online"></span>
+					Olaf D.
+				</li>
+				<li class="tutors">
+					<span class="online"></span>
+					Paul F.
+				</li>
+				<li class="tutors">
+					<span class="online"></span>
+					Holger B.
+				</li>
+			</ol>
+
+			<div class="text1">Tutoren offline:</div>
+			<ol style="list-style-type:none;">
+				<li class="tutors">
+					<span class="nonline"></span>
+					Dieter M.
+				</li>
+				<li class="tutors">
+					<span class="nonline"></span>
+					Peter Z.
+				</li>
+			</ol>
+
+		</div>
+		
+		<div class="picture" col="2"> 
+			<ul style="list-style-type:none;">
+				<div class="profilePicture"><img src="profile.jpg" alt="Menu"/></div>
+				<li class="editLink" id="edit">Profil bearbeiten</li>
+                <li id="hereButton"></li>
+			</ul>
+		</div>
+		
+		<div class="center" col="3"> 
+			<ul style="list-style-type:none;">
+				<li class="profilePrompt">Name: </li>
+				<li class="profilePrompt">Alter: </li>
+				<li class="profilePrompt">Studiengang: </li>
+				<li class="profilePrompt">Semester: </li>
+			</ul>
+		</div>
+		
+		<div class="right" col="4"> 
+			<ul style="list-style-type:none;">
+				<li class="profileItem" id="name">Karl Meier</li>
+				<li class="profileItem" id="age">24</li>
+				<li class="profileItem" id="career">Informatik</li>
+				<li class="profileItem" id="semester">3</li>
+			</ul>
+		</div>
+		
+	</div>
+	<div class="footer"> 
+			<p href=""> Impressum </p>
+		</div>
+</body>
+
+<!--Logout-Script-->
+<script>
+  (function() {
+    var popupButton = document.getElementById('popup');
+    var cancelButton = document.getElementById('cancel');
+    var Dialog = document.getElementById('Dialog');
+	var switchButton = document.getElementById('switch');
+
+    // Update button opens a modal dialog
+    popupButton.addEventListener('click', function() {
+      Dialog.showModal();
+    });
+
+    // Form cancel button closes the dialog box
+    cancelButton.addEventListener('click', function() {
+      Dialog.close(); // Todo: for the Queue add a reset
+    });
+	
+	// For the scene switch
+	switchButton.addEventListener('click', function() {
+      window.location = "login.html";
+    });
+
+  })();
+  
+function openPopup() {
+	Dialog.showModal();
+}
+
+function switchToLogin() {
+	window.location = "login.html";
+}
+
+function switchToSettings() {
+	window.location = "settings_tutor.html";
+}
+
+function switchToMain() {
+	window.location = "mainpage_tutor.html";
+}
+
+function switchToMessages() {
+	window.location = "messages_tutor.html";
+}
+
+function switchToProfile() {
+	window.location = "profile_tutor.html";
+}
+</script>
+
+<script>
+	/* Edit profile env*/
+	function finishIt(self) {
+		let editable = document.getElementsByClassName("profileItemEdit");
+		for(let j = 0; j < 20; j++) {
+			for(let element of editable) {
+                element.className= "profileItem";
+                element.onclick = function () {
+                    return false;
+                }
+			}
+		}
+		self.parentNode.innerHTML = "";
+	}
+
+	var editable = document.getElementsByClassName("profileItemEdit");
+
+	var edit = document.getElementById("edit");
+	edit.onclick = function() {
+		var profileItems = document.getElementsByClassName('profileItem');
+		for(let j = 0; j < 4; j++) {
+			for (let element of profileItems) {
+				element.className = "profileItemEdit";
+			}
+		}
+		editable = document.getElementsByClassName("profileItemEdit");
+        editable[0].onclick = (() => { editable[0].innerHTML = prompt("Gebe den neuen Nutzernamen an") });
+        editable[1].onclick = (() => { editable[1].innerHTML = prompt("Gebe neues Alter ein") });
+        editable[2].onclick = (() => { editable[2].innerHTML = prompt("Gebe neuen Studiengang ein") });
+        editable[3].onclick = (() => { editable[3].innerHTML = prompt("Gebe neues Semester") });
+
+		// Add button
+        var button = document.getElementById("hereButton");
+        button.innerHTML = "<div class=\"finishButton bt\" id=\"finishbutton\" onclick='finishIt(this)'> FINISH </div>";
+	};
+
+	var finish = document.getElementById("finishbutton");
+	finish.onclick = finishIt;
+</script>
+</html>

@@ -1,0 +1,139 @@
+<!Doctype HTML>
+<html>
+
+<!--Logout-Dialog-->
+<dialog id="Dialog">
+  <form method="dialog">
+    <section>
+      <p><label for="Pop-up" style="font-size: 64px">Möchtest du dich wirklich abmelden?</label>
+    </section>
+	  <button class="button2" id="switch" style="color: green;" onclick="switchToLogin()">Ja</button>
+	  <div class="divider"></div>
+      <button class="button2" id="cancel" style="color: red;">Nein</button>
+  </form>
+</dialog>
+
+<head>
+<meta charset = "UTF-8">
+
+	<div class="headerContainer"> 
+	
+		<div class="headerImage" col="1"> 
+			<b onclick="switchToMain()"><img src="logo.jpg" alt="Menu"/></b>
+		</div>
+		
+		<div class="topnav" col="2"> 
+			<a class="logout" onclick="openPopup()">Abmelden</a>
+			<a class="active" onclick="switchToSettings()">Einstellungen</a>
+			<a onclick="switchToProfile()">Profil</a>
+			<a onclick="switchToMessages()">Nachrichten</a>
+			<a onclick="switchToMain()">Startseite</a>
+		</div>
+		
+	</div>
+
+	<link rel="stylesheet" href="style.css">
+</head>
+<body bgcolor="F1F1F1">
+
+	<div class="container">
+
+		<div class="left" col="1">
+
+			<div class="text1">Tutoren online:</div>
+			<span style="display: none;"></span>
+			<ol style="list-style-type:none;">
+				<li class="tutors">
+					<span class="online"></span>
+					Hans G.
+				</li>
+				<li class="tutors">
+					<span class="online"></span>
+					Olaf D.
+				</li>
+				<li class="tutors">
+					<span class="online"></span>
+					Paul F.
+				</li>
+				<li class="tutors">
+					<span class="online"></span>
+					Holger B.
+				</li>
+			</ol>
+
+			<div class="text1">Tutoren offline:</div>
+			<ol style="list-style-type:none;">
+				<li class="tutors">
+					<span class="nonline"></span>
+					Dieter M.
+				</li>
+				<li class="tutors">
+					<span class="nonline"></span>
+					Peter Z.
+				</li>
+			</ol>
+
+		</div>
+		
+		<div class="center" col="2"> 
+			<h2> Settings </h2>
+			<p> Here could be your Einstellungsmenu...
+			</p>
+		</div>
+		
+	</div>
+	<div class="footer"> 
+			<p href=""> Impressum </p>
+		</div>
+</body>
+
+<!--Logout-Script-->
+<script>
+  (function() {
+    var popupButton = document.getElementById('popup');
+    var cancelButton = document.getElementById('cancel');
+    var Dialog = document.getElementById('Dialog');
+	var switchButton = document.getElementById('switch');
+
+    // Update button opens a modal dialog
+    popupButton.addEventListener('click', function() {
+      Dialog.showModal();
+    });
+
+    // Form cancel button closes the dialog box
+    cancelButton.addEventListener('click', function() {
+      Dialog.close(); // Todo: for the Queue add a reset
+    });
+	
+	// For the scene switch
+	switchButton.addEventListener('click', function() {
+      window.location = "login.html";
+    });
+
+  })();
+  
+function openPopup() {
+	Dialog.showModal();
+}
+
+function switchToLogin() {
+	window.location = "login.html";
+}
+
+function switchToSettings() {
+	window.location = "settings_tutor.html";
+}
+
+function switchToMain() {
+	window.location = "mainpage_tutor.html";
+}
+
+function switchToMessages() {
+	window.location = "messages_tutor.html";
+}
+
+function switchToProfile() {
+	window.location = "profile_tutor.html";
+}
+</script>
+</html>
