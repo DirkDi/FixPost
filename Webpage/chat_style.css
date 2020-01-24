@@ -1,6 +1,12 @@
+:root {
+  --cursorForLink: pointer;
+  --font1: Verdana, "Lucida Sans";
+  --font2: Arial, serif;
+}
+
 /* Set global font, should be only once in final script */
 * {
-	font-family: Arial, serif;
+	font-family: var(--font2);
 }
 
 /* The clouds where text is within */
@@ -52,7 +58,7 @@ the rest adjusts itself automatically (except the extendChat function, see comme
 	margin-top: 6px;
 	margin-left: 10px;
 	float: right;
-	cursor: pointer;
+	cursor: var(--cursorForLink);
 }
 
 #endcall:hover {
@@ -90,7 +96,7 @@ the rest adjusts itself automatically (except the extendChat function, see comme
 	width: 100px; height: 35px;
 	background-color: white;
 	border: 2px solid black;
-	cursor: pointer;
+	cursor: var(--cursorForLink);
 }
 
 .bt:hover {

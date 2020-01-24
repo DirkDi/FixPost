@@ -1,6 +1,12 @@
+:root {
+  --cursorForLink: pointer;
+  --font1: Verdana, "Lucida Sans";
+  --font2: Arial, serif;
+}
+
 * {
 	font-size: 35px;
-	font-family: Arial, serif;
+	font-family: var(--font2);
 }
 			
 .flex-container {

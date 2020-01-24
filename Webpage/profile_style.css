@@ -1,3 +1,9 @@
+:root {
+  --cursorForLink: pointer;
+  --font1: Verdana, "Lucida Sans";
+  --font2: Arial, serif;
+}
+
 img {
 	max-width: 65%;
     height: auto;
@@ -13,7 +19,7 @@ p {
 }
 
 .text1 {
-	font-family: Verdana, "Lucida Sans";
+	font-family: var(--font1);
 	font-size: 20px;
 	color: black;
 	padding-top: 10px;
@@ -22,7 +28,7 @@ p {
 .title{
 	display: block;
 	font-size: 36px;
-	font-family: Verdana, "Lucida Sans";
+	font-family: var(--font1);
 	color: #00519E;
 	font-weight: bold;
 	text-align: center;
@@ -62,7 +68,7 @@ p {
 	display: flex;
 	flex-direction: column;
 	background-color: #CCCCCC;
-	font-family: Verdana, "Lucida Sans";
+	font-family: var(--font1);
 }
 
 .right {
@@ -70,13 +76,13 @@ p {
 	display: flex;
 	flex-direction: column;
 	background-color: #FFFFFF;
-	font-family: Verdana, "Lucida Sans";
+	font-family: var(--font1);
 }
 
 .tutorOn {
 	background: green;
 	font-size: 30px;
-	font-family: Verdana, "Lucida Sans";
+	font-family: var(--font1);
 	color: #FFFFFF;
 	width: auto;
 	margin-bottom: 10px;
@@ -88,7 +94,7 @@ p {
 .tutorOff {
 	background: darkred;
 	font-size: 30px;
-	font-family: Verdana, "Lucida Sans";
+	font-family: var(--font1);
 	color: #FFFFFF;
 	width: auto;
 	margin-bottom: 10px;
@@ -103,7 +109,7 @@ p {
 	display: flex;
 	flex-direction: column;
 	background-color: #FFFFFF;
-	font-family: Verdana, "Lucida Sans";
+	font-family: var(--font1);
 	text-align:center;
 }
 
@@ -132,7 +138,7 @@ p {
 	height: 10%;
 	float: bottom;
 	font-size: 12px;
-	font-family: Verdana, "Lucida Sans";
+	font-family: var(--font1);
 	font-weight: bold;
 	color: #3876B0;
 	text-align: center;
@@ -167,7 +173,7 @@ p {
 	padding: 20px 22px;;
 	text-decoration: none;
 	font-size: 20px;
-	font-family: Arial, serif;
+	font-family: var(--font2)
 }
 
 /* Style the links inside the navigation bar */
@@ -249,7 +255,7 @@ a.active:hover {
 .chatWindowLeft {
 	background: darkgray;
 	font-size: 30px;
-	font-family: Verdana, "Lucida Sans";
+	font-family: var(--font1);
 	color: #FFFFFF;
 	width: auto;
 	padding: 10px;
@@ -264,7 +270,7 @@ a.active:hover {
 .chatWindowRight {
 	background: gray;
 	font-size: 30px;
-	font-family: Verdana, "Lucida Sans";
+	font-family: var(--font1);
 	color: #FFFFFF;
 	width: auto;
 	padding: 10px;
@@ -279,7 +285,7 @@ a.active:hover {
 .chatHistory {
 	background: Black;
 	font-size: 30px;
-	font-family: Verdana, "Lucida Sans";
+	font-family: var(--font1);
 	color: #FFFFFF;
 	width: auto;
 	margin-bottom: 10px;
@@ -290,7 +296,7 @@ a.active:hover {
 .profilePrompt {
 	background: white;
 	font-size: 30px;
-	font-family: Verdana, "Lucida Sans";
+	font-family: var(--font1);
 	color: black;
 	width: auto;
 	margin-bottom: 13px;
@@ -301,7 +307,7 @@ a.active:hover {
 .profileItem {
 	background: white;
 	font-size: 30px;
-	font-family: Verdana, "Lucida Sans";
+	font-family: var(--font1);
 	color: black;
 	/*width: auto;*/
 	width: 350px;
@@ -323,14 +329,14 @@ a.active:hover {
 
 .editLink {
 	font-size: 20px;
-	font-family: Verdana, "Lucida Sans", serif;
+	font-family: var(--font1);
 	color: blue;
 	width: auto;
 	display: inline;
 }
 
 .editLink:hover {
-	cursor:pointer;
+	cursor: var(--cursorForLink);
 	text-decoration:underline;
 }
 
@@ -338,9 +344,9 @@ a.active:hover {
 	width: 100px; height: 35px;
 	background-color: white;
 	border: 2px solid black;
-	cursor: pointer;
+	cursor: var(--cursorForLink);
 	margin-left: 50px;
-	font-family: Arial, sans-serif;
+	font-family: var(--font2)
 }
 
 .bt:hover {
