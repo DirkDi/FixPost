@@ -4,3 +4,6 @@ Change 1, Lukas Niehus, 23.01.2019
 	
 Change 2, Lukas Niehus, 24.01.2019
 	-Added Variables in stylesheets
+	
+Change 3, Lukas Niehus, 26.01.2019
+	-Changes tutor pages to match tutor information

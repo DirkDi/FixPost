@@ -91,11 +91,11 @@
 		<div class="center" col="2"> 
 			<div class='header'>Warteschlange</div>
 			<div class='body'>
-			<p id='people'>Leute vor dir: 4</p>
-			<p id='time'>Geschätzte Wartezeit: 20 min</p>
+			<p id='people'>Studenten in der Warteschlange: 4</p>
+			<p id='time'>Geschätzte Gesamtzeit: 20 min</p>
 		</div>
 		<div class='status' id='inQueue'>  </div>
-		<div class='buttonWrapper'><button class="button" onclick ="enterQueue()" id="changeStatus">Beitreten</button></div>
+		<div class='buttonWrapper'><button class="button" onclick ="enterQueue()" id="changeStatus">Student empfangen</button></div>
 		</div>
 		
 	</div>
@@ -176,37 +176,20 @@ function switchToProfile() {
 	window.location = "profile_tutor.html";
 }
 
+function switchToChat() {
+	window.location = "chatpage_tutor.html";
+}
+
 function cancel() {
 	document.getElementById("changeStatus").innerHTML = "Beitreten";
 	document.getElementById("inQueue").innerHTML = "";
 }
 	
 function enterQueue() {
-	if (document.getElementById("changeStatus").innerHTML == "Beitreten") {
-		if (currentPeople == 0) {
-			//popup window
-			DialogQ.showModal();
-		}
-		document.getElementById("inQueue").innerHTML = "Du bist in der Warteschlange.";
-		document.getElementById("changeStatus").innerHTML = "Verlassen";
-	} else {
-		cancel();
-	}
+	switchToChat();
 }
 	
-var x = setInterval(function() {
-	if (currentPeople >= 1) {
-		window.currentPeople--;
-		window.currentTime = currentPeople * 5;
-		document.getElementById("people").innerHTML = "Leute vor dir: " + currentPeople;
-		document.getElementById("time").innerHTML = "Geschätzte Wartezeit: " + currentTime + " min";
-	} else {
-		if (document.getElementById("changeStatus").innerHTML == "Verlassen") {
-			//popup window
-			DialogQ.showModal();
-		}
-	}
-}, 5000);
+
 </script>
 </html>
 
