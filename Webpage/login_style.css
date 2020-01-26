@@ -5,8 +5,21 @@
 }
 
 * {
-	font-size: 35px;
+	font-size: 30px;
 	font-family: var(--font2);
+}
+
+.button {
+	cursor: var(--cursorForLink);
+	margin-top: 10px;
+}
+
+.cell {
+	float: right;
+}
+
+.column_direction {
+	flex-direction: column;
 }
 			
 .flex-container {
@@ -17,18 +30,16 @@
 }
 			
 .horizontal_centering {
-	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
 			
+.logo {
+	height: 80%;
+	width: auto;
+}
+
 .title {
 	font-size: 45px;
 	text-decoration: underline
-}
-			
-.logo {
-	margin-bottom: -45px;
-	height: 80%;
-	width: auto;
 }

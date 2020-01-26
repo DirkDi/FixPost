@@ -89,13 +89,13 @@
 		</div>
 		
 		<div class="center" col="2"> 
-			<div class='header'>Warteschlange</div>
+			<div class='header'>Bereit Student aus der Warteschlange zu empfangen?</div>
 			<div class='body'>
 			<p id='people'>Studenten in der Warteschlange: 4</p>
 			<p id='time'>Geschätzte Gesamtzeit: 20 min</p>
 		</div>
 		<div class='status' id='inQueue'>  </div>
-		<div class='buttonWrapper'><button class="button" onclick ="enterQueue()" id="changeStatus">Student empfangen</button></div>
+		<div class='buttonWrapper'><button class="button" onclick ="enterQueue()" id="changeStatus">Nächster Student</button></div>
 		</div>
 		
 	</div>
@@ -133,7 +133,7 @@
 <!--Queue-Script-->
 <script>
 	
-	var currentPeople = 4;
+	var currentPeople = 1;
 	var currentTime = currentPeople * 5;
     var cancelButtonQ = document.getElementById('cancelQ');
     var DialogQ = document.getElementById('DialogQ');
@@ -181,7 +181,7 @@ function switchToChat() {
 }
 
 function cancel() {
-	document.getElementById("changeStatus").innerHTML = "Beitreten";
+	document.getElementById("changeStatus").innerHTML = "Nächster Student";
 	document.getElementById("inQueue").innerHTML = "";
 }
 	
@@ -189,7 +189,6 @@ function enterQueue() {
 	switchToChat();
 }
 	
-
 </script>
 </html>
 

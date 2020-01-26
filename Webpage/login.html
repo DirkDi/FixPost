@@ -15,15 +15,16 @@
 	</head>
 	<body onload="javascript:init()">
 		<div class="flex-container horizontal_centering">
-			<h1 class="title">
-				<img src="logo.jpg" alt="Fixpost" class="logo">Fixpost-Tutorsystem
-			</h1>
+			<img src="logo.jpg" alt="Fixpost" class="logo">
+			<h1 class="title">Fixpost-Tutorsystem</h1>
+		</div>
+		<div class="flex-container horizontal_centering column_direction">
 			<table>
 				<tr><td>Benutzername: </td> <td><input id="username_field" autofocus /></td></tr>
-				<tr><td>Passwort: </td> <td><input type="password" id="password_field" /></td></tr>
+				<tr><td class="cell">Passwort: </td> <td><input type="password" id="password_field" /></td></tr>
 			</table>
-			<button id="login" onclick="switchToMain()" style="margin-top: 10px; margin-left: 40px; cursor: pointer;">Anmelden</button>
-			<p>Noch keinen Account? <button style="cursor: pointer;" >Registrieren</button></p>
+			<button id="login" class="button" onclick="switchToMain()" style="margin-left: 40px;">Anmelden</button>
+			<p>Noch keinen Account? <button class="button" onclick="switchToRegistration()">Registrieren</button></p>
 		</div>
 	</body>
 	
@@ -69,13 +70,17 @@ function openPopup2() {
 		
 			userName = document.getElementById("username_field").value;
 			password = document.getElementById("password_field").value;
-			if((userName == "Holger Flaua" && password == "FixPost123") || (userName == "student" && password == "admin")) {
+			if ((userName == "Holger Flaua" && password == "FixPost123") || (userName == "student" && password == "admin")) {
 				window.location = "mainpage.html";
-			} else if((userName == "Olaf D." && password == "FixPost123") || (userName == "tutor" && password == "admin")) {
+			} else if ((userName == "Olaf D." && password == "FixPost123") || (userName == "tutor" && password == "admin")) {
 				window.location = "mainpage_tutor.html";
-			}else {
+			} else {
 				openPopup2();
 			}
+		}
+		
+		function switchToRegistration() {
+			window.location = "registration.html";
 		}
 	</script>
 </html>

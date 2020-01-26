@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Registrierung</title>
+		<link rel="stylesheet" href="login_style.css">
+	</head>
+	<body onload="javascript:init()">
+		<div class="flex-container horizontal_centering column_direction">
+			<h1 class="title">Registrierung</h1>
+			<table>
+				<tr><td class="cell">Benutzername: </td><td><input id="username_field" autofocus /></td></tr>
+				<tr><td class="cell">Passwort: </td><td><input id="password1_field" type="password" /></td></tr>
+				<tr><td>Passwort wiederholen: </td><td><input id="password2_field" type="password" /></td></tr>
+				<tr><td class="cell">Email-Adresse: </td><td><input id="email_address_field" type="email"></td></tr>
+			</table>
+			<p id="helpertext" style="color: red; text-align: center;"></p>
+		</div>
+		<div class="flex-container horizontal_centering">
+			<button class="button" onclick="switchToLogin()" style="margin-right: 5px;">Zurück</button>
+			<button class="button" onclick="validateRegistration()" style="margin-left: 5px;">Registrieren</button>
+		</div>
+	</body>
+	<script>
+		function init() {
+			user_field = document.getElementById("username_field");
+			user_field.addEventListener("keydown", registrateByEnter);
+			word1_field = document.getElementById("password1_field");
+			word1_field.addEventListener("keydown", registrateByEnter);
+			word2_field = document.getElementById("password2_field");
+			word2_field.addEventListener("keydown", registrateByEnter);
+			email_field = document.getElementById("email_address_field");
+			email_field.addEventListener("keydown", registrateByEnter);
+		}
+		
+		function registrateByEnter(event) {
+			var e = event.which || event.keyCode;
+			if (e === 13) {
+				validateRegistration();
+			}
+		}
+		
+		function validateEmail(email) {
+			var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			return re.test(String(email).toLowerCase());
+		}
+		
+		function validateRegistration() {
+			var username = document.getElementById("username_field").value;
+			var password1 = document.getElementById("password1_field").value;
+			var password2 = document.getElementById("password2_field").value;
+			var email = document.getElementById("email_address_field").value;
+			var result = "";
+			if (!username || !password1 || !password2 || !email) {
+				result = "Bitte füllen Sie alle Felder aus.";
+			} else if (password1.localeCompare(password2)) {
+				result = "Ihre eingegebenen Passwörter sind nicht identisch.";
+			} else if (!validateEmail(email)) {
+				result = "Ihre eingegebene Email-Adresse erfüllt nicht das erforderliche Format."
+			}
+			document.getElementById("helpertext").innerHTML = result;
+			if (!result) {
+				switchToLogin();
+			}
+		}
+		
+		function switchToLogin() {
+			window.location = "login.html";
+		}
+	</script>
+</html>

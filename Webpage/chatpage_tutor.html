@@ -49,7 +49,7 @@
 
 	<link rel="stylesheet" href="style.css">
 </head>
-<body bgcolor="F1F1F1">
+<body onload="startTimer()" bgcolor="F1F1F1">
 
 	<div class="container">
 
@@ -129,7 +129,7 @@
 						<label for="chat"></label>
 					</div>
 					<div>
-						<input type="text" id="chat" placeholder="Schreibe dem Tutor etwas..." autofocus autocomplete="off">
+						<input type="text" id="chat" placeholder="Deine Antwort..." autofocus autocomplete="off">
 					</div>
 					<div>
 						<!-- <span class="bt send"> <span class="posmiddle"> Hochladen </span> </span> -->
@@ -156,7 +156,7 @@
 <!--Logout-Script-->
 <script>
   (function() {
-    var popupButton = document.getElementById('popup');
+    //var popupButton = document.getElementById('popup');
     var cancelButton = document.getElementById('cancel');
     var Dialog = document.getElementById('Dialog');
 	var switchButton = document.getElementById('switch');
@@ -164,9 +164,9 @@
 	var closeDC = document.getElementById('closeDC');
 
     // Update button opens a modal dialog
-    popupButton.addEventListener('click', function() {
-      Dialog.showModal();
-    });
+    //popupButton.addEventListener('click', function() {
+      //Dialog.showModal();
+    //});
 
     // Form cancel button closes the dialog box
     cancelButton.addEventListener('click', function() {
@@ -210,6 +210,31 @@ function switchToMessages() {
 
 function switchToProfile() {
 	window.location = "profile_tutor.html";
+}
+
+function startTimer() {
+    setTimeout(appearQuestion, 5000);
+}
+function appearQuestion() {
+    let written_text = "Hallo Olaf, ich komme noch immer nicht mit Arrays zurecht, jetzt iteriert es gar nicht.";
+    let appearchat = document.getElementById("appearchat");
+
+    // 37 is here the average case of requiered letters til the linebreak for THIS Window size,
+    // There is no general formular, it has to be changed by hand if window size is changed
+    if(written_text.length >= 37) {
+        let rows_to_add = Math.ceil(written_text.length/30.0);
+        let change_cloud = document.createElement("div");
+        change_cloud.setAttribute("class", "textclouds");
+        // Where 35 is initial size, 16 size for each row
+        change_cloud.style.height = (35 + 16 * rows_to_add).toString()+"px";
+        change_cloud.innerHTML = "<div class='client'>" + written_text + "</div>";
+        change_cloud.style.backgroundColor = "blue";
+        change_cloud.style.marginLeft = "4.0%";
+        appearchat.appendChild(change_cloud);
+    } else if(written_text.length > 0) {
+        appendChat();
+    }
+    appearchat.scrollTop = appearchat.scrollHeight;
 }
 </script>
 </html>
