@@ -28,6 +28,11 @@
 	-webkit-flex-wrap: wrap;
 	flex-wrap: wrap;
 }
+
+.helper_text {
+	color: red;
+	text-align: center;
+}
 			
 .horizontal_centering {
 	align-items: center;

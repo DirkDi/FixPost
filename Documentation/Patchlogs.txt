@@ -1,9 +1,17 @@
-Change 1, Lukas Niehus, 23.01.2019
+Change 1, Lukas Niehus, 23.01.2020
 	-Added Credentials for the tutor Olaf D.
 	-Every Tutor page now redirects to other tutor pages
 	
-Change 2, Lukas Niehus, 24.01.2019
+Change 2, Lukas Niehus, 24.01.2020
 	-Added Variables in stylesheets
 	
-Change 3, Lukas Niehus, 26.01.2019
+Change 3, Dam Anh Tran, 25.01.2020
+	-Added registration page
+	-Improved login style sheet
+	
+Change 4, Lukas Niehus, 26.01.2020
 	-Changes tutor pages to match tutor information
+	
+Change 5, Dam Anh Tran, 26.01.2020
+	-Replaced Error Popup window by error helper text
+	-Now Enter works for all cases

@@ -1,14 +1,5 @@
 <!DOCTYPE html>
 <html>
-<dialog id="Dialog">
-	<form method="dialog">
-	  <section>
-		<p><label for="Pop-up" style="font-size: 32px; text-align: center;">Name oder Passwort ungültig.</label>
-	  </section>
-		<div class="divider" style="width: 100px;"></div>
-		<button class="button2" id="closeDC" style="color: green; width: 100px; margin-left: 175px; text-align: canter; cursor: pointer;">Ok</button>
-	</form>
-  </dialog>
 	<head>
 		<title>Login</title>
 		<link rel="stylesheet" href="login_style.css">
@@ -23,33 +14,11 @@
 				<tr><td>Benutzername: </td> <td><input id="username_field" autofocus /></td></tr>
 				<tr><td class="cell">Passwort: </td> <td><input type="password" id="password_field" /></td></tr>
 			</table>
+			<p id="helpertext" class="helper_text"></p>
 			<button id="login" class="button" onclick="switchToMain()" style="margin-left: 40px;">Anmelden</button>
 			<p>Noch keinen Account? <button class="button" onclick="switchToRegistration()">Registrieren</button></p>
 		</div>
 	</body>
-	
-	<script>
-  (function() {
-    var popupButton = document.getElementById('popup');
-    var Dialog = document.getElementById('Dialog');
-	var closeDC = document.getElementById('closeDC');
-	
-	closeDC.addEventListener('click', function() {
-		Dialog.close();
-	});
-     
-	// For the scene switch
-	switchButton.addEventListener('click', function() {
-      window.location = "login.html";
-    });
-
-  })();
-  
-function openPopup2() {
-	Dialog.showModal();
-}
-</script>
-	
 	<script>
 		function init() {
 			user_field = document.getElementById("username_field");
@@ -65,18 +34,20 @@ function openPopup2() {
 			}
 		}
 
-		
 		function switchToMain() {
-		
-			userName = document.getElementById("username_field").value;
-			password = document.getElementById("password_field").value;
-			if ((userName == "Holger Flaua" && password == "FixPost123") || (userName == "student" && password == "admin")) {
+			var userName = document.getElementById("username_field").value;
+			var password = document.getElementById("password_field").value;
+			var result = "";
+			if (!userName || !password) {
+				result = "Bitte füllen Sie alle Felder aus."
+			} else if ((userName == "Holger Flaua" && password == "FixPost123") || (userName == "student" && password == "admin")) {
 				window.location = "mainpage.html";
 			} else if ((userName == "Olaf D." && password == "FixPost123") || (userName == "tutor" && password == "admin")) {
 				window.location = "mainpage_tutor.html";
 			} else {
-				openPopup2();
+				result = "Name oder Passwort ungültig.";
 			}
+			document.getElementById("helpertext").innerHTML = result;
 		}
 		
 		function switchToRegistration() {
